@@ -1,0 +1,58 @@
+id: KMCustomTinyMCE
+name: KMCustomTinyMCE
+version: 0.04
+author_link: http://www.ewmfactory.jp/
+author_name: Koji Matsumoto.
+description: <MT_TRANS phrase="Configure TinyMCE-UI.">
+l10n_lexicon:
+    ja:
+        Configure TinyMCE-UI.: "TinyMCEのUIカスタマイズ用プラグイン。"
+editors:
+    tinymce:
+        extension: kmctmce_extension.tmpl
+blog_config_template: blg_editor_additonal_tmpl_code.tmpl
+callbacks:
+    MT::App::CMS::template_source.kmctmce_extension: $KMCustomTinyMCE::KMCustomTinyMCE::App::add_custom_tmpl_code
+settings:
+    plg_blg_kmctmce_config_js_code:
+        default: |
+          <script type="text/javascript">
+          (function($) {
+            var config   = MT.Editor.TinyMCE.config;
+            var base_url = StaticURI + 'plugins/KMCustomTinyMCE/';
+            buttons3 = (config.plugin_mt_wysiwyg_buttons3 || '')
+              + ',fontsizeselect'
+              + ',tablecontrols';
+            $.extend(config, {
+              plugins: config.plugins + ',table',
+              content_css: config.content_css + ',' + base_url + 'skin/content.css',
+              plugin_mt_wysiwyg_buttons3 : buttons3,
+              theme_advanced_blockformats : "h2,h3,h4,h5,h6,p,pre",
+              theme_advanced_font_sizes : "10px,12px,14px,16px,24px,36px"
+            });
+            $.extend(config.plugin_mt_inlinepopups_window_sizes, {
+                'table/table.htm': {
+                    width: 600,
+                    height: 300
+                },
+                'table/row.htm': {
+                    width: 450,
+                    height: 300
+                },
+                'table/cell.htm': {
+                    width: 450,
+                    height: 300
+                },
+                'table/merge_cells.htm': {
+                    width: 250,
+                    height: 140
+                }
+            });
+          })(jQuery);
+          </script>
+        scope: blog
+    plg_blg_kmctmce_config_head_code:
+        default: |
+          <link rel="stylesheet" href="<mt:var name="static_uri">plugins/KMCustomTinyMCE/skin/ui.css" type="text/css" />
+        scope: blog
+
