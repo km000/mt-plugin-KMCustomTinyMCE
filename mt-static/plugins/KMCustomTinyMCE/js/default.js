@@ -49,27 +49,33 @@
       }
   });
 //
-//>> カスタムフィールドにTinyMCEを適用する
-if( mtappVars.screen_id == 'edit-entry' ){
-//
-    // カスタムフィールドで追加したテキストエリアにTinyMCEを適用
-    var _esm = MT.App.EditorStrategy.Multi;
-    var _create = _esm.prototype.create;
-    var _set = _esm.prototype.set;
-//
-    _esm.prototype.create = function(app, ids, format) {
-        jQuery('textarea[id^="customfield_"]').each(function(i) {
-            ids.push(this.id);
-        });
-        jQuery('textarea[id="excerpt"]').each(function(i) {
-            ids.push(this.id);
-        });
-        _create.apply(this, arguments);
-    };
-//
-}
-//<<カスタムフィールドにTinyMCEを適用する
 
 
 })(jQuery);
 
+
+jQuery(document).ready(function(){
+
+  //>> カスタムフィールドにTinyMCEを適用する
+  if ( jQuery( "body" ).prop( "id" ) == 'edit-entry' ){
+  //
+      // カスタムフィールドで追加したテキストエリアにTinyMCEを適用
+      var _esm = MT.App.EditorStrategy.Multi;
+      var _create = _esm.prototype.create;
+      var _set = _esm.prototype.set;
+  //
+      _esm.prototype.create = function(app, ids, format) {
+          jQuery('textarea[id^="customfield_"]').each(function(i) {
+              ids.push(this.id);
+          });
+          jQuery('textarea[id="excerpt"]').each(function(i) {
+              ids.push(this.id);
+          });
+          _create.apply(this, arguments);
+      };
+  //
+  }
+  //<<カスタムフィールドにTinyMCEを適用する
+
+
+});

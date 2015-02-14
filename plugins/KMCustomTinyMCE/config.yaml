@@ -1,6 +1,6 @@
 id: KMCustomTinyMCE
 name: KMCustomTinyMCE
-version: 0.06
+version: 0.07
 author_link: http://www.ewmfactory.jp/
 author_name: Koji Matsumoto.
 description: <MT_TRANS phrase="Configure TinyMCE-UI.">
@@ -24,4 +24,3 @@ settings:
           <link rel="stylesheet" href="<mt:var name="static_uri">plugins/KMCustomTinyMCE/skin/ui.css" type="text/css" />
           <link rel="stylesheet" href="<mt:var name="static_uri">plugins/KMCustomTinyMCE/css/default.css" type="text/css" />
         scope: blog
-
