@@ -21,6 +21,6 @@ settings:
     plg_blg_kmctmce_config_head_code:
         default: |
           <!--KMCutomTinyMCEプラグインがデフォルトで利用するエディタのツールアイコン向けCSS-->
-          <link rel="stylesheet" href="<mt:var name="static_uri">plugins/KMCustomTinyMCE/skin/ui.css" type="text/css" />
           <link rel="stylesheet" href="<mt:var name="static_uri">plugins/KMCustomTinyMCE/css/default.css" type="text/css" />
         scope: blog
+

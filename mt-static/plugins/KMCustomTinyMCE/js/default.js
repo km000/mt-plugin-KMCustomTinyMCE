@@ -6,6 +6,11 @@
 //ツールボタンの3行目に表示するコントロールの設定。
   buttons3 = (config.plugin_mt_wysiwyg_buttons3 || '')
     + ',fontsizeselect'
+    + ',|'
+    + ',sub,sup'
+    + ',|'
+    + ',charmap'
+    + ',|'
     + ',tablecontrols';
 //
   $.extend(config, {
@@ -13,16 +18,21 @@
     plugins: config.plugins + ',table',
 //
 //エディタの編集領域に読み込むスタイルの設定。
-    content_css: config.content_css + ',' + base_url + 'skin/content.css',
+//    content_css: config.content_css + ',' + base_url + 'skin/content.css',
 //
 //ツールボタンの3行目に表示する項目の設定。
     plugin_mt_wysiwyg_buttons3 : buttons3,
 //
 //ツールボタンの見出しの選択肢の設定。
-    theme_advanced_blockformats : "h2,h3,h4,h5,h6,p,pre",
+    theme_advanced_blockformats : "h2,h3,h4,p",
 //
 //ツールボタンのフォントサイズの選択肢の設定。
     theme_advanced_font_sizes : "10px,12px,14px,16px,24px,36px",
+//
+//入力時に改行が<p>にならないようにする。
+    force_br_newlines : true,
+    force_p_newlines : false,
+    forced_root_block : '',
 //
 //挿入されるアイテムのURLをルート相対にする。
     convert_urls : true,
@@ -50,32 +60,28 @@
   });
 //
 
+/*
+//>> カスタムフィールドにTinyMCEを適用する
+if( mtappVars.screen_id == 'edit-entry' ){
+//
+    // カスタムフィールドで追加したテキストエリアにTinyMCEを適用
+    var _esm = MT.App.EditorStrategy.Multi;
+    var _create = _esm.prototype.create;
+    var _set = _esm.prototype.set;
+//
+    _esm.prototype.create = function(app, ids, format) {
+        jQuery('textarea[id^="customfield_"]').each(function(i) {
+            ids.push(this.id);
+        });
+        jQuery('textarea[id="excerpt"]').each(function(i) {
+            ids.push(this.id);
+        });
+        _create.apply(this, arguments);
+    };
+//
+}
+//<<カスタムフィールドにTinyMCEを適用する
+*/
 
 })(jQuery);
 
-
-jQuery(document).ready(function(){
-
-  //>> カスタムフィールドにTinyMCEを適用する
-  if ( jQuery( "body" ).prop( "id" ) == 'edit-entry' ){
-  //
-      // カスタムフィールドで追加したテキストエリアにTinyMCEを適用
-      var _esm = MT.App.EditorStrategy.Multi;
-      var _create = _esm.prototype.create;
-      var _set = _esm.prototype.set;
-  //
-      _esm.prototype.create = function(app, ids, format) {
-          jQuery('textarea[id^="customfield_"]').each(function(i) {
-              ids.push(this.id);
-          });
-          jQuery('textarea[id="excerpt"]').each(function(i) {
-              ids.push(this.id);
-          });
-          _create.apply(this, arguments);
-      };
-  //
-  }
-  //<<カスタムフィールドにTinyMCEを適用する
-
-
-});

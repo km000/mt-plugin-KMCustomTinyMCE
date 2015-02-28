@@ -1,1 +1,56 @@
+/* ツールボタンにテーブル関連のボタンを適用する際の設定。 */
+
+.mceItemTable, 
+.mceItemTable td, 
+.mceItemTable th, 
+.mceItemTable caption, 
+.mceItemVisualAid { 
+    outline: 1px dotted #adadad;
+}
+
+.mtSkin span.mce_table, 
+.mtSkin span.mce_row_props, 
+.mtSkin span.mce_cell_props, 
+.mtSkin span.mce_row_before, 
+.mtSkin span.mce_row_after, 
+.mtSkin span.mce_delete_row, 
+.mtSkin span.mce_col_before, 
+.mtSkin span.mce_col_after, 
+.mtSkin span.mce_delete_col, 
+.mtSkin span.mce_split_cells, 
+.mtSkin span.mce_merge_cells, 
+.mtSkin span.mce_visualaid {
+    background: transparent url(./img/icons.png) no-repeat top left;
+}
+
+.mtSkin span.mce_table { background-position: 0 0; }
+.mtSkin span.mce_row_props { background-position: -50px 0; }
+.mtSkin span.mce_cell_props { background-position: -100px 0; }
+.mtSkin span.mce_row_before { background-position: -150px 0; }
+.mtSkin span.mce_row_after { background-position: -200px 0; }
+.mtSkin span.mce_delete_row { background-position: -250px 0; }
+.mtSkin span.mce_col_before { background-position: -300px 0; }
+.mtSkin span.mce_col_after { background-position: -350px 0; }
+.mtSkin span.mce_delete_col { background-position: -400px 0; }
+.mtSkin span.mce_split_cells { background-position: -450px 0; }
+.mtSkin span.mce_merge_cells { background-position: -500px 0; }
+.mtSkin span.mce_visualaid { background-position: -550px 0; }
+
+
+/* ツールボタンに上付き・下付きを適用する際の設定。 */
+
+.mtSkin span.mce_charmap,
+.mtSkin span.mce_sub, 
+.mtSkin span.mce_sup
+ {
+    background: transparent url(../../TinyMCE/tiny_mce/themes/advanced/img/icons.gif) no-repeat top left;
+}
+
+.mtSkin span.mce_charmap { background-position: -239px 0; }
+.mtSkin span.mce_sub { background-position: -600px 0; }
+.mtSkin span.mce_sup { background-position: -620px 0; }
+
+
+/* TinyMCEを複数行テキスト型のカスタムフィールドに適用する際必須の設定。 */
+
 #sortable > .field > .field-content > .mt-editor-manager-wrap { display: block !important; }
